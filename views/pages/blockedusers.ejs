@@ -1,16 +1,25 @@
 <%- include("../partials/header.ejs") %>
 
-
 <div class="wrapper">
 
   <%- include("../partials/sidebar.ejs") %>
+
+  
+  <script>
+    $(document).ready(function(){
+      $('table#user_table').DataTable({
+        searching:false
+      });
+    });
+  </script>
+
 
   <main class="content">
     <div class="container-fluid">
 
       <div class="header">
         <h1 class="header-title">
-          Users ::: All Registered Users </h1>
+          Users ::: All Blocked Users </h1>
       </div>
       <div class="row">
         <div class="col-12">
@@ -19,7 +28,7 @@
 									<h5 class="card-title">DataTables with Fixed Header</h5>
 								</div-->
             <div class="card-body">
-              <table id="datatables-fixed-header" class="table table-striped" style="width:100%">
+              <table id="user_table" class="table table-striped" style="width:100%">
                 <thead>
                   <tr>
                     <th>Acc ID</th>
@@ -29,10 +38,26 @@
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody id="table_body">
-
-
-
+                <tbody >
+                  <% results.forEach(function (result) { %>
+                    <tr>
+                      <td>
+                        <%= result.account_id %>
+                      </td>
+                      <td>
+                        <%= result.name %>
+                      </td>
+                      <td>
+                        <%= result.email %>
+                      </td>
+                      <td>
+                        <%= result.created_at %>
+                      </td>
+                      <td>
+                        <%=  %>
+                      </td>
+                    </tr>
+                    <% }); %>
 
 
                 </tbody>

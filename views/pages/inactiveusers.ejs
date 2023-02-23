@@ -12,7 +12,7 @@
 
 					<div class="header">
 						<h1 class="header-title">
-							Users ::: All Registered Users </h1>
+							Users ::: All Inactive Users </h1>
 					</div>
 					<div class="row">
 						<div class="col-12">
@@ -32,13 +32,22 @@
 											</tr>
 										</thead>
 										<tbody  id="table_body">
-											
-											
-											
-											
-												
-											
-																		
+											<% results.forEach(function (result) { %>
+												<tr>
+												  <td>
+													<%= result.account_id %>
+												  </td>
+												  <td>
+													<%= result.name %>
+												  </td>
+												  <td>
+													<%= result.email %>
+												  </td>
+												  <td>
+													<%= result.created_at %>
+												  </td>
+												</tr>
+												<% }); %>
 											
 											
 										</tbody>
